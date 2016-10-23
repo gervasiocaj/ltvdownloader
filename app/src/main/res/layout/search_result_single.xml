@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="result" type="com.gervasiocaj.ltvdownloader.models.SearchResult" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:text="@{result._source.tipo.equals(`S`) ? `Série` : `Filme`}"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/tipo" />
+
+        <TextView
+            android:text="@{String.format(`%s (%s)`, result._source.dsc_nome_br, result._source.dsc_data_lancamento)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toRightOf="@+id/tipo"
+            android:layout_toEndOf="@+id/tipo"
+            android:id="@+id/titulo"/>
+    </RelativeLayout>
+
+</layout>
